@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StokCariFisWebApi", "StokCariFisWebApi\StokCariFisWebApi.csproj", "{1B62B63C-A3F0-46DB-8507-4C64FFBA0D7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CariWebApi.Domain", "CariWebApi.Domain\CariWebApi.Domain.csproj", "{D65FACBD-4786-4987-B40E-7E09F94CF356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CariWebApi.Application", "CariWebApi.Application\CariWebApi.Application.csproj", "{E83A106D-5076-4E66-8489-D485C6A5908C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CariWebApi.Infrastructure", "CariWebApi.Infrastructure\CariWebApi.Infrastructure.csproj", "{96E70CB3-35BE-40BD-9796-EB319E1C6A35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{1B62B63C-A3F0-46DB-8507-4C64FFBA0D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B62B63C-A3F0-46DB-8507-4C64FFBA0D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B62B63C-A3F0-46DB-8507-4C64FFBA0D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D65FACBD-4786-4987-B40E-7E09F94CF356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D65FACBD-4786-4987-B40E-7E09F94CF356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D65FACBD-4786-4987-B40E-7E09F94CF356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D65FACBD-4786-4987-B40E-7E09F94CF356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E83A106D-5076-4E66-8489-D485C6A5908C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E83A106D-5076-4E66-8489-D485C6A5908C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E83A106D-5076-4E66-8489-D485C6A5908C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E83A106D-5076-4E66-8489-D485C6A5908C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E70CB3-35BE-40BD-9796-EB319E1C6A35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E70CB3-35BE-40BD-9796-EB319E1C6A35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E70CB3-35BE-40BD-9796-EB319E1C6A35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E70CB3-35BE-40BD-9796-EB319E1C6A35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

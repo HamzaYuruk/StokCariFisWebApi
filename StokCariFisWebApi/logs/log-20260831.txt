@@ -1,0 +1,422 @@
+2026-08-31 03:04:37.936 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-31 03:04:38.097 +03:00 [INF] Now listening on: https://localhost:7073
+2026-08-31 03:04:38.100 +03:00 [INF] Now listening on: http://localhost:5194
+2026-08-31 03:04:38.105 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-31 03:04:38.107 +03:00 [INF] Hosting environment: Development
+2026-08-31 03:04:38.109 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-08-31 03:04:39.015 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-08-31 03:04:39.196 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 191.3162ms
+2026-08-31 03:04:39.412 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-08-31 03:04:39.647 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 234.2028ms
+2026-08-31 03:04:57.830 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/register - application/json 46
+2026-08-31 03:04:57.888 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi)'
+2026-08-31 03:04:57.929 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Register(CariWebApi.Application.DTOs.Auth.RegisterDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 03:04:59.332 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 03:05:00.249 +03:00 [INF] Executed DbCommand (78ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 03:05:01.021 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([IsActive], [IsDeleted], [PasswordHash], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-08-31 03:05:01.121 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1779.8808ms.
+2026-08-31 03:05:01.144 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-08-31 03:05:01.174 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi) in 3234.0186ms
+2026-08-31 03:05:01.179 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi)'
+2026-08-31 03:05:01.201 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/register - 200 null application/json; charset=utf-8 3371.2624ms
+2026-08-31 03:05:20.908 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 46
+2026-08-31 03:05:20.917 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 03:05:20.925 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 03:05:20.979 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 03:05:20.988 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 03:05:21.287 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 305.2686ms.
+2026-08-31 03:05:21.290 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-08-31 03:05:21.294 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 365.5759ms
+2026-08-31 03:05:21.297 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 03:05:21.300 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 200 null application/json; charset=utf-8 391.347ms
+2026-08-31 03:08:22.050 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 47
+2026-08-31 03:08:22.063 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 03:08:22.066 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 03:08:22.083 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 03:08:22.099 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 03:08:22.229 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 160.0444ms
+2026-08-31 03:08:22.234 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 03:08:22.238 +03:00 [WRN] Validasyon hatası: Kullanıcı adı veya şifre hatalı. - Path: /api/auth/login
+2026-08-31 03:08:22.270 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 400 null application/json 219.3828ms
+2026-08-31 03:14:16.560 +03:00 [INF] Application is shutting down...
+2026-08-31 03:15:04.415 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-31 03:15:04.569 +03:00 [INF] Now listening on: https://localhost:7073
+2026-08-31 03:15:04.572 +03:00 [INF] Now listening on: http://localhost:5194
+2026-08-31 03:15:04.576 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-31 03:15:04.578 +03:00 [INF] Hosting environment: Development
+2026-08-31 03:15:04.579 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-08-31 03:15:04.986 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-08-31 03:15:05.164 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 187.4467ms
+2026-08-31 03:15:05.394 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-08-31 03:15:05.603 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 209.2217ms
+2026-08-31 03:15:13.672 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 03:15:13.714 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-31 03:15:13.721 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-31 03:15:13.724 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 401 0 null 51.7325ms
+2026-08-31 03:17:14.001 +03:00 [INF] Application is shutting down...
+2026-08-31 03:17:17.666 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-31 03:17:17.811 +03:00 [INF] Now listening on: https://localhost:7073
+2026-08-31 03:17:17.813 +03:00 [INF] Now listening on: http://localhost:5194
+2026-08-31 03:17:17.817 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-31 03:17:17.819 +03:00 [INF] Hosting environment: Development
+2026-08-31 03:17:17.821 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-08-31 03:17:18.147 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-08-31 03:17:18.325 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 188.4673ms
+2026-08-31 03:17:18.490 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-08-31 03:17:18.671 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 180.4722ms
+2026-08-31 03:17:25.437 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/register - application/json 50
+2026-08-31 03:17:25.476 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi)'
+2026-08-31 03:17:25.504 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Register(CariWebApi.Application.DTOs.Auth.RegisterDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 03:17:26.634 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 03:17:27.291 +03:00 [INF] Executed DbCommand (51ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 03:17:27.987 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([IsActive], [IsDeleted], [PasswordHash], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-08-31 03:17:28.062 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1420.2894ms.
+2026-08-31 03:17:28.077 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-08-31 03:17:28.100 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi) in 2587.4866ms
+2026-08-31 03:17:28.105 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi)'
+2026-08-31 03:17:28.124 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/register - 200 null application/json; charset=utf-8 2687.6693ms
+2026-08-31 03:17:45.379 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 03:17:45.392 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-31 03:17:45.399 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-31 03:17:45.401 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 401 0 null 22.3812ms
+2026-08-31 03:17:46.374 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 03:17:46.383 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-31 03:17:46.386 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-31 03:17:46.388 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 401 0 null 14.0216ms
+2026-08-31 03:18:23.619 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 03:18:23.686 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-08-31 03:18:23.691 +03:00 [INF] Route matched with {action = "GetAll", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CariWebApi.Application.DTOs.CompanyDto]]] GetAll() on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-08-31 03:18:23.844 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 03:18:23.853 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-31 03:18:23.875 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[IsDeleted] = CAST(0 AS bit)
+2026-08-31 03:18:23.921 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 73.9571ms.
+2026-08-31 03:18:23.924 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CariWebApi.Application.DTOs.CompanyDto, CariWebApi.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-31 03:18:23.938 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) in 242.788ms
+2026-08-31 03:18:23.941 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-08-31 03:18:23.944 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 200 null application/json; charset=utf-8 324.4033ms
+2026-08-31 03:18:51.572 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 03:18:51.578 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-08-31 03:18:51.581 +03:00 [INF] Route matched with {action = "GetAll", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CariWebApi.Application.DTOs.CompanyDto]]] GetAll() on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-08-31 03:18:51.595 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 03:18:51.604 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[IsDeleted] = CAST(0 AS bit)
+2026-08-31 03:18:51.610 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 12.6242ms.
+2026-08-31 03:18:51.614 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CariWebApi.Application.DTOs.CompanyDto, CariWebApi.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-31 03:18:51.617 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) in 32.6885ms
+2026-08-31 03:18:51.620 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-08-31 03:18:51.623 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 200 null application/json; charset=utf-8 50.6183ms
+2026-08-31 04:11:59.839 +03:00 [INF] Application is shutting down...
+2026-08-31 04:43:27.612 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-31 04:43:27.770 +03:00 [INF] Now listening on: https://localhost:7073
+2026-08-31 04:43:27.773 +03:00 [INF] Now listening on: http://localhost:5194
+2026-08-31 04:43:27.777 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-31 04:43:27.779 +03:00 [INF] Hosting environment: Development
+2026-08-31 04:43:27.781 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-08-31 04:43:28.187 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-08-31 04:43:28.380 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 204.3976ms
+2026-08-31 04:43:28.504 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-08-31 04:43:28.662 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 158.0588ms
+2026-08-31 04:44:07.237 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 47
+2026-08-31 04:44:07.283 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:44:07.312 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 04:44:08.482 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:44:09.181 +03:00 [INF] Executed DbCommand (54ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 04:44:09.736 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 2414.7541ms
+2026-08-31 04:44:09.740 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:44:09.746 +03:00 [WRN] Validasyon hatası: Kullanıcı adı veya şifre hatalı. - Path: /api/auth/login
+2026-08-31 04:44:09.787 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 400 null application/json 2549.8393ms
+2026-08-31 04:44:17.079 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 47
+2026-08-31 04:44:17.087 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:44:17.090 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 04:44:17.142 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:44:17.164 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 04:44:17.477 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 383.3799ms
+2026-08-31 04:44:17.481 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:44:17.484 +03:00 [WRN] Validasyon hatası: Kullanıcı adı veya şifre hatalı. - Path: /api/auth/login
+2026-08-31 04:44:17.488 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 400 null application/json 408.4087ms
+2026-08-31 04:44:44.102 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/register - application/json 45
+2026-08-31 04:44:44.109 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi)'
+2026-08-31 04:44:44.116 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Register(CariWebApi.Application.DTOs.Auth.RegisterDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 04:44:44.134 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:44:44.152 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 04:44:44.157 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi) in 37.514ms
+2026-08-31 04:44:44.160 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi)'
+2026-08-31 04:44:44.163 +03:00 [WRN] Validasyon hatası: Bu kullanıcı adı zaten kullanılıyor. - Path: /api/auth/register
+2026-08-31 04:44:44.167 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/register - 400 null application/json 65.2767ms
+2026-08-31 04:44:52.102 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/register - application/json 46
+2026-08-31 04:44:52.107 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi)'
+2026-08-31 04:44:52.109 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Register(CariWebApi.Application.DTOs.Auth.RegisterDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 04:44:52.114 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:44:52.120 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 04:44:52.438 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([IsActive], [IsDeleted], [PasswordHash], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-08-31 04:44:52.511 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 389.4762ms.
+2026-08-31 04:44:52.524 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-08-31 04:44:52.540 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi) in 427.1957ms
+2026-08-31 04:44:52.543 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Register (StokCariFisWebApi)'
+2026-08-31 04:44:52.546 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/register - 200 null application/json; charset=utf-8 443.7984ms
+2026-08-31 04:45:13.170 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 04:45:13.180 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-31 04:45:13.186 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-31 04:45:13.188 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 401 0 null 18.1344ms
+2026-08-31 04:45:46.571 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 04:45:46.577 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-31 04:45:46.579 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-31 04:45:46.581 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 401 0 null 10.8106ms
+2026-08-31 04:46:03.000 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company - application/json 43
+2026-08-31 04:46:03.006 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-31 04:46:03.008 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-31 04:46:03.010 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company - 401 0 null 10.7109ms
+2026-08-31 04:46:40.204 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 04:46:40.263 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-08-31 04:46:40.268 +03:00 [INF] Route matched with {action = "GetAll", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CariWebApi.Application.DTOs.CompanyDto]]] GetAll() on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-08-31 04:46:40.386 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:46:40.394 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-31 04:46:40.412 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[IsDeleted] = CAST(0 AS bit)
+2026-08-31 04:46:40.463 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 74.1129ms.
+2026-08-31 04:46:40.467 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CariWebApi.Application.DTOs.CompanyDto, CariWebApi.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-31 04:46:40.480 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) in 208.3532ms
+2026-08-31 04:46:40.483 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-08-31 04:46:40.486 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 200 null application/json; charset=utf-8 282.2158ms
+2026-08-31 04:49:32.757 +03:00 [INF] Application is shutting down...
+2026-08-31 04:51:29.999 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-31 04:51:30.189 +03:00 [INF] Now listening on: https://localhost:7073
+2026-08-31 04:51:30.192 +03:00 [INF] Now listening on: http://localhost:5194
+2026-08-31 04:51:30.198 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-31 04:51:30.201 +03:00 [INF] Hosting environment: Development
+2026-08-31 04:51:30.203 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-08-31 04:51:30.472 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-08-31 04:51:30.699 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 239.0896ms
+2026-08-31 04:51:30.856 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-08-31 04:51:31.052 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 196.2552ms
+2026-08-31 04:52:03.066 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 45
+2026-08-31 04:52:03.112 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:52:03.140 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 04:52:04.279 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:52:04.926 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 04:52:05.469 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 2318.3308ms
+2026-08-31 04:52:05.473 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:52:05.479 +03:00 [WRN] Validasyon hatası: Kullanıcı adı veya şifre hatalı. - Path: /api/auth/login
+2026-08-31 04:52:05.517 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 400 null application/json 2451.7343ms
+2026-08-31 04:53:14.523 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 46
+2026-08-31 04:53:14.531 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:53:14.534 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 04:53:14.585 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:53:14.597 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 04:53:14.945 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 353.1995ms.
+2026-08-31 04:53:14.958 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-08-31 04:53:14.973 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 436.035ms
+2026-08-31 04:53:14.980 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:53:14.983 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 200 null application/json; charset=utf-8 459.3071ms
+2026-08-31 04:53:44.950 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company - application/json 44
+2026-08-31 04:53:45.019 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-08-31 04:53:45.025 +03:00 [INF] Route matched with {action = "Create", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto]] Create(CariWebApi.Application.DTOs.CreateCompanyDto) on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-08-31 04:53:45.153 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:53:45.157 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-31 04:53:45.160 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) in 131.7433ms
+2026-08-31 04:53:45.163 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-08-31 04:53:45.166 +03:00 [ERR] Beklenmeyen bir hata oluştu - Path: /api/company
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CariWebApi.Controllers.CompaniesController.Create(CreateCompanyDto dto) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi\Controllers\CompaniesController.cs:line 48
+   at lambda_method63(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at CariWebApi.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi\Middleware\ExceptionMiddleware.cs:line 22
+2026-08-31 04:53:45.190 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company - 500 null application/json 239.6973ms
+2026-08-31 04:53:57.710 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company - application/json 44
+2026-08-31 04:53:57.719 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-08-31 04:53:57.722 +03:00 [INF] Route matched with {action = "Create", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto]] Create(CariWebApi.Application.DTOs.CreateCompanyDto) on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-08-31 04:53:57.727 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:53:57.730 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) in 4.7827ms
+2026-08-31 04:53:57.733 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-08-31 04:53:57.735 +03:00 [ERR] Beklenmeyen bir hata oluştu - Path: /api/company
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CariWebApi.Controllers.CompaniesController.Create(CreateCompanyDto dto) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi\Controllers\CompaniesController.cs:line 48
+   at lambda_method63(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at CariWebApi.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi\Middleware\ExceptionMiddleware.cs:line 22
+2026-08-31 04:53:57.744 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company - 500 null application/json 33.7148ms
+2026-08-31 04:54:06.495 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company - application/json 47
+2026-08-31 04:54:06.501 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-08-31 04:54:06.504 +03:00 [INF] Route matched with {action = "Create", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto]] Create(CariWebApi.Application.DTOs.CreateCompanyDto) on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-08-31 04:54:06.512 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:54:06.515 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) in 8.4319ms
+2026-08-31 04:54:06.518 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-08-31 04:54:06.520 +03:00 [ERR] Beklenmeyen bir hata oluştu - Path: /api/company
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CariWebApi.Controllers.CompaniesController.Create(CreateCompanyDto dto) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi\Controllers\CompaniesController.cs:line 48
+   at lambda_method63(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at CariWebApi.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi\Middleware\ExceptionMiddleware.cs:line 22
+2026-08-31 04:54:06.529 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company - 500 null application/json 34.4018ms
+2026-08-31 04:58:36.968 +03:00 [INF] Application is shutting down...
+2026-08-31 04:58:43.424 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-31 04:58:43.566 +03:00 [INF] Now listening on: https://localhost:7073
+2026-08-31 04:58:43.568 +03:00 [INF] Now listening on: http://localhost:5194
+2026-08-31 04:58:43.572 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-31 04:58:43.574 +03:00 [INF] Hosting environment: Development
+2026-08-31 04:58:43.575 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-08-31 04:58:43.943 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-08-31 04:58:44.118 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 184.9833ms
+2026-08-31 04:58:44.257 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-08-31 04:58:44.423 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 165.338ms
+2026-08-31 04:58:57.239 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 46
+2026-08-31 04:58:57.280 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:58:57.308 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-08-31 04:58:58.481 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:58:59.132 +03:00 [INF] Executed DbCommand (57ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-08-31 04:58:59.702 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1206.3034ms.
+2026-08-31 04:58:59.717 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-08-31 04:58:59.738 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 2421.1849ms
+2026-08-31 04:58:59.741 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-08-31 04:58:59.757 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 200 null application/json; charset=utf-8 2517.8782ms
+2026-08-31 04:59:37.665 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company - application/json 43
+2026-08-31 04:59:37.722 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-08-31 04:59:37.728 +03:00 [INF] Route matched with {action = "Create", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto]] Create(CariWebApi.Application.DTOs.CreateCompanyDto) on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-08-31 04:59:37.889 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 04:59:37.892 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-31 04:59:38.107 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Boolean), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Companies] ([CreatedAt], [IsActive], [IsDeleted], [Name], [TaxNumber])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-08-31 04:59:38.212 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UserCompanies] ([CompanyId], [IsActive], [Role], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-08-31 04:59:38.222 +03:00 [INF] Yeni şirket oluşturuldu: 3 - 41, Owner: 3
+2026-08-31 04:59:38.279 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-08-31 04:59:38.293 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 400.8684ms.
+2026-08-31 04:59:38.296 +03:00 [INF] Executing CreatedAtActionResult, writing value of type 'CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto'.
+2026-08-31 04:59:38.330 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) in 597.7424ms
+2026-08-31 04:59:38.333 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-08-31 04:59:38.335 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company - 201 null application/json; charset=utf-8 670.1673ms
+2026-08-31 05:00:41.902 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-08-31 05:00:41.911 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-08-31 05:00:41.918 +03:00 [INF] Route matched with {action = "GetAll", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CariWebApi.Application.DTOs.CompanyDto]]] GetAll() on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-08-31 05:00:41.933 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) - Validation state: "Valid"
+2026-08-31 05:00:41.972 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[CompanyId]
+FROM [UserCompanies] AS [u]
+WHERE [u].[UserId] = @__userId_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-08-31 05:00:42.063 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__companyIds_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[Id] IN (
+    SELECT [c0].[value]
+    FROM OPENJSON(@__companyIds_0) WITH ([value] int '$') AS [c0]
+) AND [c].[IsDeleted] = CAST(0 AS bit)
+2026-08-31 05:00:42.080 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 143.8452ms.
+2026-08-31 05:00:42.084 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CariWebApi.Application.DTOs.CompanyDto, CariWebApi.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-31 05:00:42.094 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) in 172.4351ms
+2026-08-31 05:00:42.097 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-08-31 05:00:42.100 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 200 null application/json; charset=utf-8 198.1906ms
+2026-08-31 05:03:30.851 +03:00 [INF] Application is shutting down...
