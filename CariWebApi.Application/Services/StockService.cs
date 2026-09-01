@@ -13,12 +13,18 @@ public class StockService : IStockService
     private readonly IRepository<Stock> _repository;
     private readonly IMapper _mapper;
     private readonly ILogger<StockService> _logger;
+    private readonly ICurrentUserService _currentUser;
 
-    public StockService(IRepository<Stock> repository, IMapper mapper, ILogger<StockService> logger)
+    public StockService(
+        IRepository<Stock> repository,
+        IMapper mapper,
+        ILogger<StockService> logger,
+        ICurrentUserService currentUser)
     {
         _repository = repository;
         _mapper = mapper;
         _logger = logger;
+        _currentUser = currentUser;
     }
 
     // stokları getirme 
@@ -26,8 +32,8 @@ public class StockService : IStockService
     {
         IQueryable<Stock> query = _repository.Query()
             .Include(s => s.Company)
-            .Where(s => !s.IsDeleted);
-
+            .Where(s => !s.IsDeleted && s.CompanyId == _currentUser.CompanyId);
+        
         if (!string.IsNullOrEmpty(search))
         {
             query = query.Where(s => s.Name.Contains(search) || s.Code.Contains(search));
@@ -46,7 +52,7 @@ public class StockService : IStockService
     {
         var stock = await _repository.Query()
             .Include(s => s.Company)
-            .FirstOrDefaultAsync(s => s.Id == id && !s.IsDeleted);
+            .FirstOrDefaultAsync(s => s.Id == id && !s.IsDeleted && s.CompanyId == _currentUser.CompanyId);
 
         if (stock == null)
         {
@@ -59,6 +65,11 @@ public class StockService : IStockService
     public async Task<StockDto> CreateAsync(CreateStockDto dto)
     {
         // gerekli if kontrolleri
+        if (_currentUser.CompanyId == null)
+        {
+            throw new ValidationException(ErrorMessages.NoCompanySelected);
+        }
+        
         if (string.IsNullOrWhiteSpace(dto.Name))
         {
             throw new ValidationException(ErrorMessages.NameRequired);
@@ -76,6 +87,8 @@ public class StockService : IStockService
         
         
         var stock = _mapper.Map<Stock>(dto);
+        
+        stock.CompanyId = _currentUser.CompanyId!.Value;
 
         await _repository.AddAsync(stock);
 
@@ -105,7 +118,9 @@ public class StockService : IStockService
             throw new ValidationException(ErrorMessages.NegativePrice);
         }
 
-        var stock = await _repository.GetByIdAsync(id);
+        var stock = await _repository.Query()
+            .FirstOrDefaultAsync(s => s.Id == id && s.CompanyId == _currentUser.CompanyId);
+        
         if (stock == null)
         {
             _logger.LogWarning("Güncellenmek istenen stok bulunamadı: {StockId}", id);
@@ -125,7 +140,8 @@ public class StockService : IStockService
     // stok silme
     public async Task<bool> DeleteAsync(int id)
     {
-        var stock = await _repository.GetByIdAsync(id);
+        var stock = await _repository.Query()
+            .FirstOrDefaultAsync(s => s.Id == id && s.CompanyId == _currentUser.CompanyId);
         
         if (stock == null)
         {

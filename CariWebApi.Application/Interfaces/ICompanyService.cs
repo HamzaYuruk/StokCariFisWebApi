@@ -9,6 +9,8 @@ public interface ICompanyService
     
     Task<CompanyDto?> GetByIdAsync(int id);
     
+    Task<CreateCompanyResponseDto> SelectCompanyAsync(int companyId, int userId);
+    
     Task<CreateCompanyResponseDto> CreateAsync(CreateCompanyDto dto,int userId);
     
     Task<CompanyDto?> UpdateAsync(int id, UpdateCompanyDto dto);

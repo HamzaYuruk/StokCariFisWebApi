@@ -64,6 +64,32 @@ public class CompanyService : ICompanyService
         return _mapper.Map<CompanyDto>(company);
     }
 
+    // şirket seçme-bir kullanıcının birden fazla şirketi olabilirdi
+    public async Task<CreateCompanyResponseDto> SelectCompanyAsync(int companyId, int userId)
+    {
+        var userCompany = await _userCompanyRepository.Query()
+            .FirstOrDefaultAsync(uc => uc.UserId == userId && uc.CompanyId == companyId && uc.IsActive);
+
+        if (userCompany == null)
+        {
+            _logger.LogWarning("Yetkisiz şirket seçme denemesi: UserId {UserId}, CompanyId {CompanyId}", userId, companyId);
+            throw new ValidationException(ErrorMessages.NoAccessToCompany);
+        }
+
+        var company = await _repository.GetByIdAsync(companyId);
+        var user = await _userRepository.GetByIdAsync(userId);
+
+        var newToken = _jwtService.GenerateToken(user!, companyId, userCompany.Role);
+
+        _logger.LogInformation("Kullanıcı şirket seçti: UserId {UserId}, CompanyId {CompanyId}, Role {Role}", userId, companyId, userCompany.Role);
+
+        return new CreateCompanyResponseDto
+        {
+            Company = _mapper.Map<CompanyDto>(company),
+            Token = newToken
+        };
+    }
+    
     // şirket create
     public async Task<CreateCompanyResponseDto> CreateAsync(CreateCompanyDto dto, int userId)
     {

@@ -14,18 +14,19 @@ namespace CariWebApi.Controllers;
 public class CompaniesController : ControllerBase
 {
     private readonly ICompanyService _service;
+    private readonly ICurrentUserService _currentUser;
 
-    public CompaniesController(ICompanyService service)
+    public CompaniesController(ICompanyService service, ICurrentUserService currentUser)
     {
         _service = service;
+        _currentUser = currentUser;
     }
 
     // GET /api/company
-    [HttpGet]
+    [HttpGet] 
     public async Task<ActionResult<List<CompanyDto>>> GetAll()
     {
-        var userId = int.Parse(User.FindFirst(JwtRegisteredClaimNames.Sub)!.Value);
-        var companies = await _service.GetAllAsync(userId);
+        var companies = await _service.GetAllAsync(_currentUser.UserId);
         return Ok(companies);
     }
     
@@ -40,13 +41,20 @@ public class CompaniesController : ControllerBase
         }
         return Ok(company);
     }
+    
+    // POST /api/company/{id}/select
+    [HttpPost("{id}/select")]
+    public async Task<ActionResult<CreateCompanyResponseDto>> SelectCompany(int id)
+    {
+        var result = await _service.SelectCompanyAsync(id, _currentUser.UserId);
+        return Ok(result);
+    }
 
     // POST /api/company
     [HttpPost]
     public async Task<ActionResult<CreateCompanyResponseDto>> Create(CreateCompanyDto dto)
     {
-        var userId = int.Parse(User.FindFirst(JwtRegisteredClaimNames.Sub)!.Value);
-        var result = await _service.CreateAsync(dto, userId);
+        var result = await _service.CreateAsync(dto, _currentUser.UserId);
         return CreatedAtAction(nameof(GetById), new { id = result.Company.Id }, result);
     }
     
@@ -67,7 +75,6 @@ public class CompaniesController : ControllerBase
     public async Task<IActionResult> Delete(int id)
     {
         var deleted = await _service.DeleteAsync(id);
-       
         if (!deleted)
         {
             return NotFound();

@@ -12,6 +12,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 
+
+
 // logları dosyaya kaydetmek için
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -32,7 +34,12 @@ builder.Host.UseSerilog();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IStockService, StockService>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IReceiptService, ReceiptService>();
 
+
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<AuthService>();
 // mapping için ayar

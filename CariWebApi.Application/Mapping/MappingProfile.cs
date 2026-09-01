@@ -18,6 +18,14 @@ public class MappingProfile : Profile
         CreateMap<UpdateStockDto, Stock>();
         
         //
+        CreateMap<Account, AccountDto>();
+        CreateMap<CreateAccountDto,Account>();
+        CreateMap<UpdateAccountDto,Account>();
         
+        //
+        CreateMap<Receipt,ReceiptDto>();
+        CreateMap<CreateReceiptDto, Receipt>();
+        CreateMap<ReceiptDetail, ReceiptDetailDto>();
+        CreateMap<AddReceiptDetailDto,ReceiptDetail>();
     }
 }
