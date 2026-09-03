@@ -17,7 +17,7 @@ public class CompanyService : ICompanyService
     private readonly IRepository<User> _userRepository;
     private readonly IMapper _mapper;
     private readonly ILogger<CompanyService> _logger;
-    private readonly JwtService _jwtService;
+    private readonly IJwtService _jwtService;
     private readonly IRepository<Role> _roleRepository;
     
     public CompanyService(
@@ -27,7 +27,7 @@ public class CompanyService : ICompanyService
         IRepository<Role> roleRepository,
         IMapper mapper,
         ILogger<CompanyService> logger,
-        JwtService jwtService)
+        IJwtService jwtService)
     {
         _repository = repository;
         _userCompanyRepository = userCompanyRepository;

@@ -37,11 +37,11 @@ builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IReceiptService, ReceiptService>();
-
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<AuthService>();
+
 // mapping için ayar
 builder.Services.AddAutoMapper(cfg => { }, typeof(MappingProfile));
 

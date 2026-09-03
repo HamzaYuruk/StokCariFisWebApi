@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b1dd4ab5_002D0910_002D47cc_002Da05d_002Dab60027cdff3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AuthServiceTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::0EE3ED61-B17C-4A6B-B52F-4A2497B4915E::net8.0::CariWebApi.Tests.AuthServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0EE3ED61-B17C-4A6B-B52F-4A2497B4915E::net8.0::CariWebApi.Tests.StockServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0EE3ED61-B17C-4A6B-B52F-4A2497B4915E::net8.0::CariWebApi.Tests.AccountServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0EE3ED61-B17C-4A6B-B52F-4A2497B4915E::net8.0::CariWebApi.Tests.ReceiptServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0EE3ED61-B17C-4A6B-B52F-4A2497B4915E::net8.0::CariWebApi.Tests.CompanyServiceTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

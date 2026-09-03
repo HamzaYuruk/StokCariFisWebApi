@@ -10,9 +10,9 @@ namespace CariWebApi.Application.Services;
 public class AuthService
 {
     private readonly IRepository<User> _userRepository;
-    private readonly JwtService _jwtService;
+    private readonly IJwtService _jwtService;
 
-    public AuthService(IRepository<User> userRepository, JwtService jwtService)
+    public AuthService(IRepository<User> userRepository, IJwtService jwtService)
     {
         _userRepository = userRepository;
         _jwtService = jwtService;

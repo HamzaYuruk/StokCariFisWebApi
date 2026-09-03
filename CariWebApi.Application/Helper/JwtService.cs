@@ -4,11 +4,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using CariWebApi.Application.Interfaces;
 using CariWebApi.Domain.Enums;
 
 namespace CariWebApi.Application.Services;
 
-public class JwtService
+public class JwtService: IJwtService
 {
     private readonly JwtSettings _jwtSettings;
 
