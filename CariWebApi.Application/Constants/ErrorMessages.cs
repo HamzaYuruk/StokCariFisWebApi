@@ -30,4 +30,6 @@ public class ErrorMessages
     
     public const string EmptyReceipt = "Boş bir fiş onaylanamaz.";
     
+    public const string UserNotFound = "Belirtilen kullanıcı bulunamadı.";
+    
 }

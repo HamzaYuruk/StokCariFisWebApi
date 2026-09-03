@@ -33,12 +33,11 @@ public class CurrentUserService : ICurrentUserService
         }
     }
 
-    public UserRole? Role
+    public string? Role
     {
         get
         {
-            var value = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.Role)?.Value;
-            return value != null ? Enum.Parse<UserRole>(value) : null;
+            return _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.Role)?.Value;
         }
     }
 }

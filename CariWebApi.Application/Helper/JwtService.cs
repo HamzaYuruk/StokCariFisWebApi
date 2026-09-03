@@ -17,7 +17,7 @@ public class JwtService
         _jwtSettings = jwtSettings;
     }
 
-    public string GenerateToken(User user, int? companyId = null, UserRole? role = null)
+    public string GenerateToken(User user, int? companyId = null, string? role = null)
     {
         var claims = new List<Claim>
         {
@@ -30,9 +30,9 @@ public class JwtService
             claims.Add(new Claim("companyId", companyId.Value.ToString()));
         }
 
-        if (role.HasValue)
+        if (!string.IsNullOrEmpty(role))
         {
-            claims.Add(new Claim(ClaimTypes.Role, role.Value.ToString()));
+            claims.Add(new Claim(ClaimTypes.Role, role));
         }
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));

@@ -13,4 +13,8 @@ public interface IAccountService
     Task<AccountDto?> UpdateAsync(int id, UpdateAccountDto dto);
     
     Task<bool> DeleteAsync(int id);
+    
+    Task<bool> LinkUserAsync(int accountId, LinkAccountUserDto dto);
+    
+    Task<MyAccountDto?> GetMyAccountAsync();
 }

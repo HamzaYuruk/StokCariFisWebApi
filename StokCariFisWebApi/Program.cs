@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
-
+using CariWebApi.Domain.Entities;
 
 
 // logları dosyaya kaydetmek için
@@ -108,7 +108,24 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+
 var app = builder.Build();
+
+// seed
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    if (!context.Roles.Any())
+    {
+        context.Roles.AddRange(
+            new Role { Name = "Owner" },
+            new Role { Name = "User" },
+            new Role { Name = "Customer" },
+            new Role { Name = "Admin" }
+        );
+        context.SaveChanges();
+    }
+}
 
 app.UseMiddleware<ExceptionMiddleware>();
 

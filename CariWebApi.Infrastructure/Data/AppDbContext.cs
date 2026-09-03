@@ -13,14 +13,15 @@ public class AppDbContext : DbContext
 
     public DbSet<Company> Companies { get; set; }
     public DbSet<User> Users { get; set; }
-    public DbSet<UserCompany> UserCompanies { get; set; }
+    public DbSet<UserCompanyRole> UserCompanyRoles { get; set; }
     public DbSet<Account> Accounts { get; set; }
     public DbSet<Stock> Stocks { get; set; }
     public DbSet<Receipt> Receipts { get; set; }
     public DbSet<ReceiptDetail> ReceiptDetails { get; set; }
     public DbSet<StockTrans> StockTrans { get; set; }
     public DbSet<ActTrans> ActTrans { get; set; }
-
+    public DbSet<Role>  Roles { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Tüm decimal alanlar için ortak precision/scale ayarı

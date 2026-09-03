@@ -21,6 +21,7 @@ public class MappingProfile : Profile
         CreateMap<Account, AccountDto>();
         CreateMap<CreateAccountDto,Account>();
         CreateMap<UpdateAccountDto,Account>();
+        CreateMap<Account, MyAccountDto>();
         
         //
         CreateMap<Receipt,ReceiptDto>();

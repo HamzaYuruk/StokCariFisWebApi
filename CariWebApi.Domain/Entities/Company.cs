@@ -9,5 +9,5 @@ public class Company
     public bool IsDeleted { get; set; } = false;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    public ICollection<UserCompany> UserCompanies { get; set; } = new List<UserCompany>();
+    public ICollection<UserCompanyRole> UserCompanies { get; set; } = new List<UserCompanyRole>();
 }

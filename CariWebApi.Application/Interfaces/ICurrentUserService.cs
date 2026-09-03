@@ -8,5 +8,5 @@ public interface ICurrentUserService
     
     int? CompanyId { get; }
     
-    UserRole? Role { get; }
+    string? Role { get; }
 }

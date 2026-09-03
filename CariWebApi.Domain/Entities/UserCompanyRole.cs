@@ -1,8 +1,8 @@
-﻿using CariWebApi.Domain.Enums;
+﻿
 
 namespace CariWebApi.Domain.Entities;
 
-public class UserCompany
+public class UserCompanyRole
 {
     public int Id { get; set; }
 
@@ -12,7 +12,8 @@ public class UserCompany
     public int CompanyId { get; set; }
     public Company? Company { get; set; }
 
-    public UserRole Role { get; set; }
+    public int RoleId { get; set; }
+    public Role? Role { get; set; }
 
     public bool IsActive { get; set; } = true;
 }

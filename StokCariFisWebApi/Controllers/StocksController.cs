@@ -19,6 +19,7 @@ public class StocksController : ControllerBase
 
     // GET /api/stocks
     [HttpGet]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<List<StockDto>>> GetAll(string? search, int page = 1, int pageSize = 10)
     {
         var stocks = await _service.GetAllAsync(search, page, pageSize);
@@ -27,6 +28,7 @@ public class StocksController : ControllerBase
 
     // GET /api/stocks/{id}
     [HttpGet("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<StockDto>> GetById(int id)
     {
         var stock = await _service.GetByIdAsync(id);
@@ -39,6 +41,7 @@ public class StocksController : ControllerBase
 
     // POST /api/stocks
     [HttpPost]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<StockDto>> Create(CreateStockDto dto)
     {
         var stock = await _service.CreateAsync(dto);
@@ -47,6 +50,7 @@ public class StocksController : ControllerBase
 
     // PUT /api/stocks/{id}
     [HttpPut("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<StockDto>> Update(int id, UpdateStockDto dto)
     {
         var stock = await _service.UpdateAsync(id, dto);
@@ -59,6 +63,7 @@ public class StocksController : ControllerBase
 
     // DELETE /api/stocks/{id}
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<IActionResult> Delete(int id)
     {
         var deleted = await _service.DeleteAsync(id);

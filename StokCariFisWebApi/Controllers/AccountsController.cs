@@ -19,6 +19,7 @@ public class AccountsController : ControllerBase
 
     // GET /api/accounts
     [HttpGet]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<List<AccountDto>>> GetAll(string? search, int page = 1, int pageSize = 10)
     {
         var accounts = await _service.GetAllAsync(search, page, pageSize);
@@ -27,6 +28,7 @@ public class AccountsController : ControllerBase
 
     // GET /api/accounts/{id}
     [HttpGet("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<AccountDto>> GetById(int id)
     {
         var account = await _service.GetByIdAsync(id);
@@ -39,6 +41,7 @@ public class AccountsController : ControllerBase
 
     // POST /api/accounts
     [HttpPost]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<AccountDto>> Create(CreateAccountDto dto)
     {
         var account = await _service.CreateAsync(dto);
@@ -47,6 +50,7 @@ public class AccountsController : ControllerBase
 
     // PUT /api/accounts
     [HttpPut("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<AccountDto>> Update(int id, UpdateAccountDto dto)
     {
         var account = await _service.UpdateAsync(id, dto);
@@ -59,6 +63,7 @@ public class AccountsController : ControllerBase
 
     // DELETE /api/accounts
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<IActionResult> Delete(int id)
     {
         var deleted = await _service.DeleteAsync(id);
@@ -67,5 +72,31 @@ public class AccountsController : ControllerBase
             return NotFound();
         }
         return NoContent();
+    }
+    
+    
+    // POST /api/accounts/{id}/link-user
+    [HttpPost("{id}/link-user")]
+    [Authorize(Roles = "Owner,User")]
+    public async Task<IActionResult> LinkUser(int id, LinkAccountUserDto dto)
+    {
+        var linked = await _service.LinkUserAsync(id, dto);
+        if (!linked)
+        {
+            return NotFound();
+        }
+        return NoContent();
+    }
+
+    // GET /api/accounts/my-account
+    [HttpGet("/api/my-account")]
+    public async Task<ActionResult<MyAccountDto>> GetMyAccount()
+    {
+        var account = await _service.GetMyAccountAsync();
+        if (account == null)
+        {
+            return NotFound();
+        }
+        return Ok(account);
     }
 }

@@ -19,6 +19,7 @@ public class ReceiptsController : ControllerBase
 
     // GET /api/receipts
     [HttpGet]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<List<ReceiptDto>>> GetAll(int page = 1, int pageSize = 10)
     {
         var receipts = await _service.GetAllAsync(page, pageSize);
@@ -27,6 +28,7 @@ public class ReceiptsController : ControllerBase
 
     // GET /api/receipts/{id}
     [HttpGet("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<ReceiptDto>> GetById(int id)
     {
         var receipt = await _service.GetByIdAsync(id);
@@ -39,6 +41,7 @@ public class ReceiptsController : ControllerBase
     
     // POST /api/receipts
     [HttpPost]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<ReceiptDto>> Create(CreateReceiptDto dto)
     {
         var receipt = await _service.CreateAsync(dto);
@@ -47,6 +50,7 @@ public class ReceiptsController : ControllerBase
 
     // POST /api/receipts/{id}/details
     [HttpPost("{id}/details")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<ReceiptDto>> AddDetail(int id, AddReceiptDetailDto dto)
     {
         var receipt = await _service.AddDetailAsync(id, dto);
@@ -59,6 +63,7 @@ public class ReceiptsController : ControllerBase
 
     // PUT /api/receipts/{id}
     [HttpPut("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<ReceiptDto>> Update(int id, CreateReceiptDto dto)
     {
         var receipt = await _service.UpdateAsync(id, dto);
@@ -71,6 +76,7 @@ public class ReceiptsController : ControllerBase
 
     // DELETE /api/receipts/{id}
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<IActionResult> Delete(int id)
     {
         var deleted = await _service.DeleteAsync(id);
@@ -83,6 +89,7 @@ public class ReceiptsController : ControllerBase
     
     // POST /api/receipts/{id}/approve
     [HttpPost("{id}/approve")]
+    [Authorize(Roles = "Owner,User")]
     public async Task<ActionResult<ReceiptDto>> Approve(int id)
     {
         var receipt = await _service.ApproveAsync(id);

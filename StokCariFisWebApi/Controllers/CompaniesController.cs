@@ -59,6 +59,7 @@ public class CompaniesController : ControllerBase
     }
     
     // PUT /api/company/{id}
+    [Authorize(Roles = "Owner")]
     [HttpPut("{id}")]
     public async Task<ActionResult<CompanyDto>> Update(int id, UpdateCompanyDto dto)
     {
@@ -71,6 +72,7 @@ public class CompaniesController : ControllerBase
     }
 
     // DELETE /api/company/{id}
+    [Authorize(Roles = "Owner")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
