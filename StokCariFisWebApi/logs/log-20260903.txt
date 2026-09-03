@@ -1605,3 +1605,654 @@ WHERE [c].[Id] IN (
 2026-09-03 13:41:01.819 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
 2026-09-03 13:41:01.822 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 200 null application/json; charset=utf-8 50.561ms
 2026-09-03 13:47:18.592 +03:00 [INF] Application is shutting down...
+2026-09-03 13:58:25.895 +03:00 [INF] Executed DbCommand (75ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-03 13:58:26.048 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-03 13:58:26.154 +03:00 [INF] Now listening on: https://localhost:7073
+2026-09-03 13:58:26.157 +03:00 [INF] Now listening on: http://localhost:5194
+2026-09-03 13:58:26.161 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-03 13:58:26.164 +03:00 [INF] Hosting environment: Development
+2026-09-03 13:58:26.167 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-09-03 13:58:26.634 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-09-03 13:58:26.820 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 196.1328ms
+2026-09-03 13:58:26.967 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-09-03 13:58:27.165 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 198.0001ms
+2026-09-03 14:01:50.200 +03:00 [INF] Application is shutting down...
+2026-09-03 14:02:45.544 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-03 14:02:45.680 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-03 14:02:45.772 +03:00 [INF] Now listening on: https://localhost:7073
+2026-09-03 14:02:45.774 +03:00 [INF] Now listening on: http://localhost:5194
+2026-09-03 14:02:45.778 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-03 14:02:45.780 +03:00 [INF] Hosting environment: Development
+2026-09-03 14:02:45.781 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-09-03 14:02:45.983 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-09-03 14:02:46.158 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 184.6361ms
+2026-09-03 14:02:46.287 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-09-03 14:02:46.450 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 162.5662ms
+2026-09-03 14:03:02.102 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 46
+2026-09-03 14:03:02.143 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-09-03 14:03:02.168 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-09-03 14:03:02.248 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:03:02.406 +03:00 [INF] Executed DbCommand (45ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-09-03 14:03:02.955 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 700.9843ms.
+2026-09-03 14:03:02.971 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-09-03 14:03:02.991 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 815.561ms
+2026-09-03 14:03:02.996 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-09-03 14:03:03.005 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 200 null application/json; charset=utf-8 903.8136ms
+2026-09-03 14:03:22.825 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-09-03 14:03:22.886 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-09-03 14:03:22.893 +03:00 [INF] Route matched with {action = "GetAll", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CariWebApi.Application.DTOs.CompanyDto]]] GetAll() on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-09-03 14:03:23.072 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:03:23.080 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-09-03 14:03:23.107 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[CompanyId]
+FROM [UserCompanyRoles] AS [u]
+WHERE [u].[UserId] = @__userId_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-09-03 14:03:23.213 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__companyIds_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[Id] IN (
+    SELECT [c0].[value]
+    FROM OPENJSON(@__companyIds_0) WITH ([value] int '$') AS [c0]
+) AND [c].[IsDeleted] = CAST(0 AS bit)
+2026-09-03 14:03:23.257 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 182.7226ms.
+2026-09-03 14:03:23.261 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CariWebApi.Application.DTOs.CompanyDto, CariWebApi.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-03 14:03:23.276 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) in 378.9132ms
+2026-09-03 14:03:23.279 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-09-03 14:03:23.282 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 200 null application/json; charset=utf-8 457.0596ms
+2026-09-03 14:03:39.091 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company - application/json 43
+2026-09-03 14:03:39.100 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-09-03 14:03:39.106 +03:00 [INF] Route matched with {action = "Create", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto]] Create(CariWebApi.Application.DTOs.CreateCompanyDto) on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-09-03 14:03:39.115 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:03:39.297 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Boolean), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Companies] ([CreatedAt], [IsActive], [IsDeleted], [Name], [TaxNumber])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-09-03 14:03:39.346 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+WHERE [r].[Name] = N'Owner'
+2026-09-03 14:03:39.406 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UserCompanyRoles] ([CompanyId], [IsActive], [RoleId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-09-03 14:03:39.415 +03:00 [INF] Yeni şirket oluşturuldu: 7 - ss, Owner: 1
+2026-09-03 14:03:39.439 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-09-03 14:03:39.450 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 333.0874ms.
+2026-09-03 14:03:39.454 +03:00 [INF] Executing CreatedAtActionResult, writing value of type 'CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto'.
+2026-09-03 14:03:39.482 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi) in 372.6259ms
+2026-09-03 14:03:39.485 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.Create (StokCariFisWebApi)'
+2026-09-03 14:03:39.488 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company - 201 null application/json; charset=utf-8 397.0106ms
+2026-09-03 14:03:47.714 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company/7/select - null 0
+2026-09-03 14:03:47.721 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi)'
+2026-09-03 14:03:47.727 +03:00 [INF] Route matched with {action = "SelectCompany", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto]] SelectCompany(Int32) on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-09-03 14:03:47.737 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:03:47.798 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__companyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CompanyId], [u].[IsActive], [u].[RoleId], [u].[UserId], [r].[Id], [r].[Name]
+FROM [UserCompanyRoles] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[UserId] = @__userId_0 AND [u].[CompanyId] = @__companyId_1 AND [u].[IsActive] = CAST(1 AS bit)
+2026-09-03 14:03:47.820 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-09-03 14:03:47.830 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-09-03 14:03:47.835 +03:00 [INF] Kullanıcı şirket seçti: UserId 1, CompanyId 7, Role Owner
+2026-09-03 14:03:47.839 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 99.8671ms.
+2026-09-03 14:03:47.843 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto'.
+2026-09-03 14:03:47.846 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi) in 115.5496ms
+2026-09-03 14:03:47.849 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi)'
+2026-09-03 14:03:47.852 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company/7/select - 200 null application/json; charset=utf-8 137.9816ms
+2026-09-03 14:04:16.483 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/accounts - application/json 67
+2026-09-03 14:04:16.491 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AccountsController.Create (StokCariFisWebApi)'
+2026-09-03 14:04:16.496 +03:00 [INF] Route matched with {action = "Create", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.AccountDto]] Create(CariWebApi.Application.DTOs.CreateAccountDto) on controller CariWebApi.Controllers.AccountsController (StokCariFisWebApi).
+2026-09-03 14:04:16.504 +03:00 [INF] Executing action method CariWebApi.Controllers.AccountsController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:04:16.567 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Accounts] ([Balance], [Code], [CompanyId], [IsActive], [IsDeleted], [Name], [TaxNumber], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-09-03 14:04:16.574 +03:00 [INF] Yeni cari oluşturuldu: 6 - mehmet
+2026-09-03 14:04:16.580 +03:00 [INF] Executed action method CariWebApi.Controllers.AccountsController.Create (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 73.3359ms.
+2026-09-03 14:04:16.584 +03:00 [INF] Executing CreatedAtActionResult, writing value of type 'CariWebApi.Application.DTOs.AccountDto'.
+2026-09-03 14:04:16.600 +03:00 [INF] Executed action CariWebApi.Controllers.AccountsController.Create (StokCariFisWebApi) in 99.9324ms
+2026-09-03 14:04:16.603 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AccountsController.Create (StokCariFisWebApi)'
+2026-09-03 14:04:16.606 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/accounts - 201 null application/json; charset=utf-8 122.5876ms
+2026-09-03 14:04:36.706 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/accounts/6/link-user - application/json 26
+2026-09-03 14:04:36.712 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AccountsController.LinkUser (StokCariFisWebApi)'
+2026-09-03 14:04:36.717 +03:00 [INF] Route matched with {action = "LinkUser", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LinkUser(Int32, CariWebApi.Application.DTOs.LinkAccountUserDto) on controller CariWebApi.Controllers.AccountsController (StokCariFisWebApi).
+2026-09-03 14:04:36.725 +03:00 [INF] Executing action method CariWebApi.Controllers.AccountsController.LinkUser (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:04:36.738 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__accountId_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Balance], [a].[Code], [a].[CompanyId], [a].[IsActive], [a].[IsDeleted], [a].[Name], [a].[TaxNumber], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__accountId_0 AND [a].[CompanyId] = @___currentUser_CompanyId_1
+2026-09-03 14:04:36.756 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-09-03 14:04:36.767 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+WHERE [r].[Name] = N'Customer'
+2026-09-03 14:04:36.778 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CompanyId], [u].[IsActive], [u].[RoleId], [u].[UserId]
+FROM [UserCompanyRoles] AS [u]
+WHERE [u].[UserId] = @__user_Id_0 AND [u].[CompanyId] = @___currentUser_CompanyId_1
+2026-09-03 14:04:36.833 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Boolean), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Accounts] SET [Balance] = @p0, [Code] = @p1, [CompanyId] = @p2, [IsActive] = @p3, [IsDeleted] = @p4, [Name] = @p5, [TaxNumber] = @p6, [UserId] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+INSERT INTO [UserCompanyRoles] ([CompanyId], [IsActive], [RoleId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p9, @p10, @p11, @p12);
+2026-09-03 14:04:36.853 +03:00 [INF] Cari kullanıcıya bağlandı: AccountId 6, UserId 4
+2026-09-03 14:04:36.857 +03:00 [INF] Executed action method CariWebApi.Controllers.AccountsController.LinkUser (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 130.0013ms.
+2026-09-03 14:04:36.864 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2026-09-03 14:04:36.867 +03:00 [INF] Executed action CariWebApi.Controllers.AccountsController.LinkUser (StokCariFisWebApi) in 146.0809ms
+2026-09-03 14:04:36.870 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AccountsController.LinkUser (StokCariFisWebApi)'
+2026-09-03 14:04:36.872 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/accounts/6/link-user - 204 null null 166.5966ms
+2026-09-03 14:05:32.519 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/receipts?page=1&pageSize=10 - null null
+2026-09-03 14:05:32.524 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.ReceiptsController.GetAll (StokCariFisWebApi)'
+2026-09-03 14:05:32.530 +03:00 [INF] Route matched with {action = "GetAll", controller = "Receipts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CariWebApi.Application.DTOs.ReceiptDto]]] GetAll(Int32, Int32) on controller CariWebApi.Controllers.ReceiptsController (StokCariFisWebApi).
+2026-09-03 14:05:32.539 +03:00 [INF] Executing action method CariWebApi.Controllers.ReceiptsController.GetAll (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:05:32.599 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@___currentUser_CompanyId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccountId], [t].[CompanyId], [t].[Date], [t].[IsDeleted], [t].[ReceiptNumber], [t].[ReceiptType], [t].[Status], [t].[TotalAmount], [a].[Id], [a].[Balance], [a].[Code], [a].[CompanyId], [a].[IsActive], [a].[IsDeleted], [a].[Name], [a].[TaxNumber], [a].[UserId], [r0].[Id], [r0].[LineTotal], [r0].[Quantity], [r0].[ReceiptId], [r0].[StockId], [r0].[UnitPrice]
+FROM (
+    SELECT [r].[Id], [r].[AccountId], [r].[CompanyId], [r].[Date], [r].[IsDeleted], [r].[ReceiptNumber], [r].[ReceiptType], [r].[Status], [r].[TotalAmount]
+    FROM [Receipts] AS [r]
+    WHERE [r].[CompanyId] = @___currentUser_CompanyId_0 AND [r].[IsDeleted] = CAST(0 AS bit)
+    ORDER BY [r].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[Id]
+LEFT JOIN [ReceiptDetails] AS [r0] ON [t].[Id] = [r0].[ReceiptId]
+ORDER BY [t].[Date] DESC, [t].[Id], [a].[Id]
+2026-09-03 14:05:32.608 +03:00 [INF] Executed action method CariWebApi.Controllers.ReceiptsController.GetAll (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 67.1532ms.
+2026-09-03 14:05:32.612 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CariWebApi.Application.DTOs.ReceiptDto, CariWebApi.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-03 14:05:32.621 +03:00 [INF] Executed action CariWebApi.Controllers.ReceiptsController.GetAll (StokCariFisWebApi) in 87.9822ms
+2026-09-03 14:05:32.625 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.ReceiptsController.GetAll (StokCariFisWebApi)'
+2026-09-03 14:05:32.627 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/receipts?page=1&pageSize=10 - 200 null application/json; charset=utf-8 108.2328ms
+2026-09-03 14:06:09.952 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/receipts - application/json 84
+2026-09-03 14:06:09.958 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi)'
+2026-09-03 14:06:09.963 +03:00 [INF] Route matched with {action = "Create", controller = "Receipts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.ReceiptDto]] Create(CariWebApi.Application.DTOs.CreateReceiptDto) on controller CariWebApi.Controllers.ReceiptsController (StokCariFisWebApi).
+2026-09-03 14:06:09.977 +03:00 [INF] Executing action method CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:06:10.018 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[@___currentUser_CompanyId_0='?' (DbType = Int32), @__receiptType_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Receipts] AS [r]
+WHERE [r].[CompanyId] = @___currentUser_CompanyId_0 AND [r].[ReceiptType] = @__receiptType_1
+2026-09-03 14:06:10.067 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 450), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Receipts] ([AccountId], [CompanyId], [Date], [IsDeleted], [ReceiptNumber], [ReceiptType], [Status], [TotalAmount])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-09-03 14:06:10.097 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'CariWebApi.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Receipts_Accounts_AccountId". The conflict occurred in database "StokCariFisDb", table "dbo.Accounts", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:52202a29-0e28-4a90-b497-e8e92b0e450b
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Receipts_Accounts_AccountId". The conflict occurred in database "StokCariFisDb", table "dbo.Accounts", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:52202a29-0e28-4a90-b497-e8e92b0e450b
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-09-03 14:06:10.114 +03:00 [INF] Executed action CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi) in 147.335ms
+2026-09-03 14:06:10.118 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi)'
+2026-09-03 14:06:10.121 +03:00 [ERR] Beklenmeyen bir hata oluştu - Path: /api/receipts
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Receipts_Accounts_AccountId". The conflict occurred in database "StokCariFisDb", table "dbo.Accounts", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:52202a29-0e28-4a90-b497-e8e92b0e450b
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at CariWebApi.Infrastructure.Repositories.Repository`1.SaveChangesAsync() in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\CariWebApi.Infrastructure\Repositories\Repository.cs:line 52
+   at CariWebApi.Application.Services.ReceiptService.CreateAsync(CreateReceiptDto dto) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\CariWebApi.Application\Services\ReceiptService.cs:line 73
+   at CariWebApi.Controllers.ReceiptsController.Create(CreateReceiptDto dto) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi\Controllers\ReceiptsController.cs:line 47
+   at lambda_method477(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at CariWebApi.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi\Middleware\ExceptionMiddleware.cs:line 22
+2026-09-03 14:06:10.171 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/receipts - 500 null application/json 218.3821ms
+2026-09-03 14:06:39.970 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/receipts - application/json 84
+2026-09-03 14:06:39.975 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi)'
+2026-09-03 14:06:39.977 +03:00 [INF] Route matched with {action = "Create", controller = "Receipts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.ReceiptDto]] Create(CariWebApi.Application.DTOs.CreateReceiptDto) on controller CariWebApi.Controllers.ReceiptsController (StokCariFisWebApi).
+2026-09-03 14:06:39.986 +03:00 [INF] Executing action method CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:06:39.991 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@___currentUser_CompanyId_0='?' (DbType = Int32), @__receiptType_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Receipts] AS [r]
+WHERE [r].[CompanyId] = @___currentUser_CompanyId_0 AND [r].[ReceiptType] = @__receiptType_1
+2026-09-03 14:06:40.009 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 450), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Receipts] ([AccountId], [CompanyId], [Date], [IsDeleted], [ReceiptNumber], [ReceiptType], [Status], [TotalAmount])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-09-03 14:06:40.018 +03:00 [INF] Yeni fiş oluşturuldu: 11 - Sales-00001
+2026-09-03 14:06:40.026 +03:00 [INF] Executed action method CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 37.5081ms.
+2026-09-03 14:06:40.030 +03:00 [INF] Executing CreatedAtActionResult, writing value of type 'CariWebApi.Application.DTOs.ReceiptDto'.
+2026-09-03 14:06:40.040 +03:00 [INF] Executed action CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi) in 58.7244ms
+2026-09-03 14:06:40.043 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi)'
+2026-09-03 14:06:40.045 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/receipts - 201 null application/json; charset=utf-8 75.7244ms
+2026-09-03 14:07:01.728 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/receipts/11/details - application/json 55
+2026-09-03 14:07:01.733 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi)'
+2026-09-03 14:07:01.739 +03:00 [INF] Route matched with {action = "AddDetail", controller = "Receipts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.ReceiptDto]] AddDetail(Int32, CariWebApi.Application.DTOs.AddReceiptDetailDto) on controller CariWebApi.Controllers.ReceiptsController (StokCariFisWebApi).
+2026-09-03 14:07:01.748 +03:00 [INF] Executing action method CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:07:01.774 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__receiptId_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccountId], [t].[CompanyId], [t].[Date], [t].[IsDeleted], [t].[ReceiptNumber], [t].[ReceiptType], [t].[Status], [t].[TotalAmount], [r0].[Id], [r0].[LineTotal], [r0].[Quantity], [r0].[ReceiptId], [r0].[StockId], [r0].[UnitPrice]
+FROM (
+    SELECT TOP(1) [r].[Id], [r].[AccountId], [r].[CompanyId], [r].[Date], [r].[IsDeleted], [r].[ReceiptNumber], [r].[ReceiptType], [r].[Status], [r].[TotalAmount]
+    FROM [Receipts] AS [r]
+    WHERE [r].[Id] = @__receiptId_0 AND [r].[CompanyId] = @___currentUser_CompanyId_1
+) AS [t]
+LEFT JOIN [ReceiptDetails] AS [r0] ON [t].[Id] = [r0].[ReceiptId]
+ORDER BY [t].[Id]
+2026-09-03 14:07:01.790 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__dto_StockId_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Balance], [s].[Code], [s].[CompanyId], [s].[IsActive], [s].[IsDeleted], [s].[Name], [s].[Unit], [s].[UnitPrice]
+FROM [Stocks] AS [s]
+WHERE [s].[Id] = @__dto_StockId_0 AND [s].[CompanyId] = @___currentUser_CompanyId_1
+2026-09-03 14:07:01.795 +03:00 [INF] Executed action CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi) in 52.9818ms
+2026-09-03 14:07:01.798 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi)'
+2026-09-03 14:07:01.801 +03:00 [WRN] Validasyon hatası: Belirtilen stok bulunamadı. - Path: /api/receipts/11/details
+2026-09-03 14:07:01.804 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/receipts/11/details - 400 null application/json 75.9835ms
+2026-09-03 14:07:29.427 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/stocks - application/json 82
+2026-09-03 14:07:29.432 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.StocksController.Create (StokCariFisWebApi)'
+2026-09-03 14:07:29.437 +03:00 [INF] Route matched with {action = "Create", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.StockDto]] Create(CariWebApi.Application.DTOs.CreateStockDto) on controller CariWebApi.Controllers.StocksController (StokCariFisWebApi).
+2026-09-03 14:07:29.446 +03:00 [INF] Executing action method CariWebApi.Controllers.StocksController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:07:29.487 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([Balance], [Code], [CompanyId], [IsActive], [IsDeleted], [Name], [Unit], [UnitPrice])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-09-03 14:07:29.493 +03:00 [INF] Yeni stok oluşturuldu: 13 - araba
+2026-09-03 14:07:29.499 +03:00 [INF] Executed action method CariWebApi.Controllers.StocksController.Create (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 50.8051ms.
+2026-09-03 14:07:29.502 +03:00 [INF] Executing CreatedAtActionResult, writing value of type 'CariWebApi.Application.DTOs.StockDto'.
+2026-09-03 14:07:29.509 +03:00 [INF] Executed action CariWebApi.Controllers.StocksController.Create (StokCariFisWebApi) in 67.7153ms
+2026-09-03 14:07:29.512 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.StocksController.Create (StokCariFisWebApi)'
+2026-09-03 14:07:29.514 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/stocks - 201 null application/json; charset=utf-8 87.2125ms
+2026-09-03 14:08:19.882 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/receipts - application/json 87
+2026-09-03 14:08:19.888 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi)'
+2026-09-03 14:08:19.890 +03:00 [INF] Route matched with {action = "Create", controller = "Receipts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.ReceiptDto]] Create(CariWebApi.Application.DTOs.CreateReceiptDto) on controller CariWebApi.Controllers.ReceiptsController (StokCariFisWebApi).
+2026-09-03 14:08:19.895 +03:00 [INF] Executing action method CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:08:19.920 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@___currentUser_CompanyId_0='?' (DbType = Int32), @__receiptType_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Receipts] AS [r]
+WHERE [r].[CompanyId] = @___currentUser_CompanyId_0 AND [r].[ReceiptType] = @__receiptType_1
+2026-09-03 14:08:19.929 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 450), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Receipts] ([AccountId], [CompanyId], [Date], [IsDeleted], [ReceiptNumber], [ReceiptType], [Status], [TotalAmount])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-09-03 14:08:19.934 +03:00 [INF] Yeni fiş oluşturuldu: 12 - Purchase-00001
+2026-09-03 14:08:19.937 +03:00 [INF] Executed action method CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 38.6246ms.
+2026-09-03 14:08:19.940 +03:00 [INF] Executing CreatedAtActionResult, writing value of type 'CariWebApi.Application.DTOs.ReceiptDto'.
+2026-09-03 14:08:19.943 +03:00 [INF] Executed action CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi) in 49.7145ms
+2026-09-03 14:08:19.946 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.ReceiptsController.Create (StokCariFisWebApi)'
+2026-09-03 14:08:19.949 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/receipts - 201 null application/json; charset=utf-8 67.1ms
+2026-09-03 14:08:47.456 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/receipts/12/details - application/json 59
+2026-09-03 14:08:47.462 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi)'
+2026-09-03 14:08:47.464 +03:00 [INF] Route matched with {action = "AddDetail", controller = "Receipts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.ReceiptDto]] AddDetail(Int32, CariWebApi.Application.DTOs.AddReceiptDetailDto) on controller CariWebApi.Controllers.ReceiptsController (StokCariFisWebApi).
+2026-09-03 14:08:47.469 +03:00 [INF] Executing action method CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:08:47.485 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__receiptId_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccountId], [t].[CompanyId], [t].[Date], [t].[IsDeleted], [t].[ReceiptNumber], [t].[ReceiptType], [t].[Status], [t].[TotalAmount], [r0].[Id], [r0].[LineTotal], [r0].[Quantity], [r0].[ReceiptId], [r0].[StockId], [r0].[UnitPrice]
+FROM (
+    SELECT TOP(1) [r].[Id], [r].[AccountId], [r].[CompanyId], [r].[Date], [r].[IsDeleted], [r].[ReceiptNumber], [r].[ReceiptType], [r].[Status], [r].[TotalAmount]
+    FROM [Receipts] AS [r]
+    WHERE [r].[Id] = @__receiptId_0 AND [r].[CompanyId] = @___currentUser_CompanyId_1
+) AS [t]
+LEFT JOIN [ReceiptDetails] AS [r0] ON [t].[Id] = [r0].[ReceiptId]
+ORDER BY [t].[Id]
+2026-09-03 14:08:47.493 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__dto_StockId_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Balance], [s].[Code], [s].[CompanyId], [s].[IsActive], [s].[IsDeleted], [s].[Name], [s].[Unit], [s].[UnitPrice]
+FROM [Stocks] AS [s]
+WHERE [s].[Id] = @__dto_StockId_0 AND [s].[CompanyId] = @___currentUser_CompanyId_1
+2026-09-03 14:08:47.522 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p13='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Boolean), @p9='?' (Size = 450), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ReceiptDetails] ([LineTotal], [Quantity], [ReceiptId], [StockId], [UnitPrice])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Receipts] SET [AccountId] = @p5, [CompanyId] = @p6, [Date] = @p7, [IsDeleted] = @p8, [ReceiptNumber] = @p9, [ReceiptType] = @p10, [Status] = @p11, [TotalAmount] = @p12
+OUTPUT 1
+WHERE [Id] = @p13;
+2026-09-03 14:08:47.529 +03:00 [INF] Fişe satır eklendi: ReceiptId 12, StockId 13, Quantity 100
+2026-09-03 14:08:47.534 +03:00 [INF] Executed action method CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 62.7676ms.
+2026-09-03 14:08:47.538 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.ReceiptDto'.
+2026-09-03 14:08:47.544 +03:00 [INF] Executed action CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi) in 75.6535ms
+2026-09-03 14:08:47.547 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.ReceiptsController.AddDetail (StokCariFisWebApi)'
+2026-09-03 14:08:47.550 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/receipts/12/details - 200 null application/json; charset=utf-8 93.4547ms
+2026-09-03 14:09:00.206 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/receipts/12/approve - null 0
+2026-09-03 14:09:00.211 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.ReceiptsController.Approve (StokCariFisWebApi)'
+2026-09-03 14:09:00.216 +03:00 [INF] Route matched with {action = "Approve", controller = "Receipts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.ReceiptDto]] Approve(Int32) on controller CariWebApi.Controllers.ReceiptsController (StokCariFisWebApi).
+2026-09-03 14:09:00.221 +03:00 [INF] Executing action method CariWebApi.Controllers.ReceiptsController.Approve (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:09:00.238 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccountId], [t].[CompanyId], [t].[Date], [t].[IsDeleted], [t].[ReceiptNumber], [t].[ReceiptType], [t].[Status], [t].[TotalAmount], [r0].[Id], [r0].[LineTotal], [r0].[Quantity], [r0].[ReceiptId], [r0].[StockId], [r0].[UnitPrice]
+FROM (
+    SELECT TOP(1) [r].[Id], [r].[AccountId], [r].[CompanyId], [r].[Date], [r].[IsDeleted], [r].[ReceiptNumber], [r].[ReceiptType], [r].[Status], [r].[TotalAmount]
+    FROM [Receipts] AS [r]
+    WHERE [r].[Id] = @__id_0 AND [r].[CompanyId] = @___currentUser_CompanyId_1
+) AS [t]
+LEFT JOIN [ReceiptDetails] AS [r0] ON [t].[Id] = [r0].[ReceiptId]
+ORDER BY [t].[Id]
+2026-09-03 14:09:00.249 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Balance], [s].[Code], [s].[CompanyId], [s].[IsActive], [s].[IsDeleted], [s].[Name], [s].[Unit], [s].[UnitPrice]
+FROM [Stocks] AS [s]
+WHERE [s].[Id] = @__p_0
+2026-09-03 14:09:00.272 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Balance], [a].[Code], [a].[CompanyId], [a].[IsActive], [a].[IsDeleted], [a].[Name], [a].[TaxNumber], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__p_0
+2026-09-03 14:09:00.324 +03:00 [INF] Executed DbCommand (27ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p13='?' (DbType = Int32), @p14='?' (DbType = DateTime2), @p23='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = DateTime2), @p18='?' (DbType = Boolean), @p19='?' (Size = 450), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (DbType = Int32), @p25='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (DbType = DateTime2), @p37='?' (DbType = Int32), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (Size = 450), @p31='?' (DbType = Int32), @p32='?' (DbType = Boolean), @p33='?' (DbType = Boolean), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Accounts] SET [Balance] = @p0, [Code] = @p1, [CompanyId] = @p2, [IsActive] = @p3, [IsDeleted] = @p4, [Name] = @p5, [TaxNumber] = @p6, [UserId] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+INSERT INTO [ActTrans] ([AccountId], [CompanyId], [Credit], [Debit], [ReceiptId], [TransDate])
+OUTPUT INSERTED.[Id]
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14);
+UPDATE [Receipts] SET [AccountId] = @p15, [CompanyId] = @p16, [Date] = @p17, [IsDeleted] = @p18, [ReceiptNumber] = @p19, [ReceiptType] = @p20, [Status] = @p21, [TotalAmount] = @p22
+OUTPUT 1
+WHERE [Id] = @p23;
+INSERT INTO [StockTrans] ([CompanyId], [Quantity], [ReceiptId], [StockId], [TransDate])
+OUTPUT INSERTED.[Id]
+VALUES (@p24, @p25, @p26, @p27, @p28);
+UPDATE [Stocks] SET [Balance] = @p29, [Code] = @p30, [CompanyId] = @p31, [IsActive] = @p32, [IsDeleted] = @p33, [Name] = @p34, [Unit] = @p35, [UnitPrice] = @p36
+OUTPUT 1
+WHERE [Id] = @p37;
+2026-09-03 14:09:00.332 +03:00 [INF] Fiş onaylandı: 12
+2026-09-03 14:09:00.334 +03:00 [INF] Executed action method CariWebApi.Controllers.ReceiptsController.Approve (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 110.1815ms.
+2026-09-03 14:09:00.337 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.ReceiptDto'.
+2026-09-03 14:09:00.340 +03:00 [INF] Executed action CariWebApi.Controllers.ReceiptsController.Approve (StokCariFisWebApi) in 120.1609ms
+2026-09-03 14:09:00.343 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.ReceiptsController.Approve (StokCariFisWebApi)'
+2026-09-03 14:09:00.345 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/receipts/12/approve - 200 null application/json; charset=utf-8 139.3002ms
+2026-09-03 14:09:27.313 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 47
+2026-09-03 14:09:27.319 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-09-03 14:09:27.321 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-09-03 14:09:27.326 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:09:27.340 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-09-03 14:09:27.610 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 281.8236ms.
+2026-09-03 14:09:27.614 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-09-03 14:09:27.617 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 292.0658ms
+2026-09-03 14:09:27.620 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-09-03 14:09:27.622 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 200 null application/json; charset=utf-8 308.8989ms
+2026-09-03 14:09:51.816 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company/7/select - null 0
+2026-09-03 14:09:51.827 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-03 14:09:51.836 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-03 14:09:51.838 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company/7/select - 401 0 null 21.8809ms
+2026-09-03 14:09:59.682 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-09-03 14:09:59.686 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-03 14:09:59.688 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-03 14:09:59.690 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 401 0 null 8.3755ms
+2026-09-03 14:10:20.263 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-09-03 14:10:20.269 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-09-03 14:10:20.273 +03:00 [INF] Route matched with {action = "GetAll", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CariWebApi.Application.DTOs.CompanyDto]]] GetAll() on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-09-03 14:10:20.278 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:10:20.297 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[CompanyId]
+FROM [UserCompanyRoles] AS [u]
+WHERE [u].[UserId] = @__userId_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-09-03 14:10:20.309 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__companyIds_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[Id] IN (
+    SELECT [c0].[value]
+    FROM OPENJSON(@__companyIds_0) WITH ([value] int '$') AS [c0]
+) AND [c].[IsDeleted] = CAST(0 AS bit)
+2026-09-03 14:10:20.314 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 33.7222ms.
+2026-09-03 14:10:20.317 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CariWebApi.Application.DTOs.CompanyDto, CariWebApi.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-03 14:10:20.320 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) in 43.2492ms
+2026-09-03 14:10:20.323 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-09-03 14:10:20.326 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 200 null application/json; charset=utf-8 62.354ms
+2026-09-03 14:10:28.386 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company/7/select - null 0
+2026-09-03 14:10:28.391 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi)'
+2026-09-03 14:10:28.394 +03:00 [INF] Route matched with {action = "SelectCompany", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto]] SelectCompany(Int32) on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-09-03 14:10:28.398 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:10:28.412 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__companyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CompanyId], [u].[IsActive], [u].[RoleId], [u].[UserId], [r].[Id], [r].[Name]
+FROM [UserCompanyRoles] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[UserId] = @__userId_0 AND [u].[CompanyId] = @__companyId_1 AND [u].[IsActive] = CAST(1 AS bit)
+2026-09-03 14:10:28.418 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-09-03 14:10:28.425 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-09-03 14:10:28.430 +03:00 [INF] Kullanıcı şirket seçti: UserId 4, CompanyId 7, Role Customer
+2026-09-03 14:10:28.433 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 32.1581ms.
+2026-09-03 14:10:28.436 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto'.
+2026-09-03 14:10:28.439 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi) in 41.5433ms
+2026-09-03 14:10:28.442 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi)'
+2026-09-03 14:10:28.444 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company/7/select - 200 null application/json; charset=utf-8 58.265ms
+2026-09-03 14:10:47.093 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/my-account - null null
+2026-09-03 14:10:47.098 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi)'
+2026-09-03 14:10:47.104 +03:00 [INF] Route matched with {action = "GetMyAccount", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.MyAccountDto]] GetMyAccount() on controller CariWebApi.Controllers.AccountsController (StokCariFisWebApi).
+2026-09-03 14:10:47.109 +03:00 [INF] Executing action method CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:10:47.141 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[@___currentUser_UserId_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Balance], [a].[Code], [a].[CompanyId], [a].[IsActive], [a].[IsDeleted], [a].[Name], [a].[TaxNumber], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @___currentUser_UserId_0 AND [a].[CompanyId] = @___currentUser_CompanyId_1
+2026-09-03 14:10:47.158 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__account_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AccountId], [r].[CompanyId], [r].[Date], [r].[IsDeleted], [r].[ReceiptNumber], [r].[ReceiptType], [r].[Status], [r].[TotalAmount], [a].[Id], [a].[Balance], [a].[Code], [a].[CompanyId], [a].[IsActive], [a].[IsDeleted], [a].[Name], [a].[TaxNumber], [a].[UserId], [r0].[Id], [r0].[LineTotal], [r0].[Quantity], [r0].[ReceiptId], [r0].[StockId], [r0].[UnitPrice]
+FROM [Receipts] AS [r]
+INNER JOIN [Accounts] AS [a] ON [r].[AccountId] = [a].[Id]
+LEFT JOIN [ReceiptDetails] AS [r0] ON [r].[Id] = [r0].[ReceiptId]
+WHERE [r].[AccountId] = @__account_Id_0 AND [r].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [r].[Date] DESC, [r].[Id], [a].[Id]
+2026-09-03 14:10:47.166 +03:00 [INF] Executed action method CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 54.0067ms.
+2026-09-03 14:10:47.169 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.MyAccountDto'.
+2026-09-03 14:10:47.175 +03:00 [INF] Executed action CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi) in 66.6997ms
+2026-09-03 14:10:47.178 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi)'
+2026-09-03 14:10:47.180 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/my-account - 200 null application/json; charset=utf-8 87.3145ms
+2026-09-03 14:12:45.474 +03:00 [INF] Application is shutting down...
+2026-09-03 14:13:58.949 +03:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-03 14:13:59.101 +03:00 [INF] User profile is available. Using 'C:\Users\Hamza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-03 14:13:59.214 +03:00 [INF] Now listening on: https://localhost:7073
+2026-09-03 14:13:59.216 +03:00 [INF] Now listening on: http://localhost:5194
+2026-09-03 14:13:59.222 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-03 14:13:59.224 +03:00 [INF] Hosting environment: Development
+2026-09-03 14:13:59.225 +03:00 [INF] Content root path: C:\Users\Hamza\RiderProjects\StokCariFisWebApi\StokCariFisWebApi
+2026-09-03 14:13:59.779 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/index.html - null null
+2026-09-03 14:13:59.964 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/index.html - 200 null text/html;charset=utf-8 195.2949ms
+2026-09-03 14:14:00.108 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - null null
+2026-09-03 14:14:00.347 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 239.1693ms
+2026-09-03 14:14:14.758 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/auth/login - application/json 47
+2026-09-03 14:14:14.800 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-09-03 14:14:14.825 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.AuthResponseDto]] Login(CariWebApi.Application.DTOs.Auth.LoginDto) on controller CariWebApi.Controllers.AuthController (StokCariFisWebApi).
+2026-09-03 14:14:14.907 +03:00 [INF] Executing action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:14:15.072 +03:00 [INF] Executed DbCommand (39ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2026-09-03 14:14:15.640 +03:00 [INF] Executed action method CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 726.1089ms.
+2026-09-03 14:14:15.656 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.AuthResponseDto'.
+2026-09-03 14:14:15.678 +03:00 [INF] Executed action CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi) in 844.0492ms
+2026-09-03 14:14:15.682 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AuthController.Login (StokCariFisWebApi)'
+2026-09-03 14:14:15.694 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/auth/login - 200 null application/json; charset=utf-8 936.052ms
+2026-09-03 14:14:34.898 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/company - null null
+2026-09-03 14:14:34.962 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-09-03 14:14:34.968 +03:00 [INF] Route matched with {action = "GetAll", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CariWebApi.Application.DTOs.CompanyDto]]] GetAll() on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-09-03 14:14:35.141 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:14:35.148 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-09-03 14:14:35.183 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[CompanyId]
+FROM [UserCompanyRoles] AS [u]
+WHERE [u].[UserId] = @__userId_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-09-03 14:14:35.286 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__companyIds_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[Id] IN (
+    SELECT [c0].[value]
+    FROM OPENJSON(@__companyIds_0) WITH ([value] int '$') AS [c0]
+) AND [c].[IsDeleted] = CAST(0 AS bit)
+2026-09-03 14:14:35.327 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 183.4709ms.
+2026-09-03 14:14:35.331 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CariWebApi.Application.DTOs.CompanyDto, CariWebApi.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-03 14:14:35.343 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi) in 371.8441ms
+2026-09-03 14:14:35.346 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.GetAll (StokCariFisWebApi)'
+2026-09-03 14:14:35.349 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/company - 200 null application/json; charset=utf-8 451.1825ms
+2026-09-03 14:14:41.356 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7073/api/company/7/select - null 0
+2026-09-03 14:14:41.368 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi)'
+2026-09-03 14:14:41.378 +03:00 [INF] Route matched with {action = "SelectCompany", controller = "Companies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto]] SelectCompany(Int32) on controller CariWebApi.Controllers.CompaniesController (StokCariFisWebApi).
+2026-09-03 14:14:41.385 +03:00 [INF] Executing action method CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:14:41.448 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__companyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CompanyId], [u].[IsActive], [u].[RoleId], [u].[UserId], [r].[Id], [r].[Name]
+FROM [UserCompanyRoles] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[UserId] = @__userId_0 AND [u].[CompanyId] = @__companyId_1 AND [u].[IsActive] = CAST(1 AS bit)
+2026-09-03 14:14:41.492 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsActive], [c].[IsDeleted], [c].[Name], [c].[TaxNumber]
+FROM [Companies] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-09-03 14:14:41.510 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[IsActive], [u].[IsDeleted], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-09-03 14:14:41.517 +03:00 [INF] Kullanıcı şirket seçti: UserId 4, CompanyId 7, Role Customer
+2026-09-03 14:14:41.522 +03:00 [INF] Executed action method CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 134.9522ms.
+2026-09-03 14:14:41.525 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.Auth.CreateCompanyResponseDto'.
+2026-09-03 14:14:41.530 +03:00 [INF] Executed action CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi) in 147.5932ms
+2026-09-03 14:14:41.533 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.CompaniesController.SelectCompany (StokCariFisWebApi)'
+2026-09-03 14:14:41.536 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7073/api/company/7/select - 200 null application/json; charset=utf-8 179.5719ms
+2026-09-03 14:14:59.201 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7073/api/my-account - null null
+2026-09-03 14:14:59.207 +03:00 [INF] Executing endpoint 'CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi)'
+2026-09-03 14:14:59.214 +03:00 [INF] Route matched with {action = "GetMyAccount", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CariWebApi.Application.DTOs.MyAccountDto]] GetMyAccount() on controller CariWebApi.Controllers.AccountsController (StokCariFisWebApi).
+2026-09-03 14:14:59.219 +03:00 [INF] Executing action method CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi) - Validation state: "Valid"
+2026-09-03 14:14:59.253 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@___currentUser_UserId_0='?' (DbType = Int32), @___currentUser_CompanyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Balance], [a].[Code], [a].[CompanyId], [a].[IsActive], [a].[IsDeleted], [a].[Name], [a].[TaxNumber], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @___currentUser_UserId_0 AND [a].[CompanyId] = @___currentUser_CompanyId_1
+2026-09-03 14:14:59.344 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[@__account_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AccountId], [r].[CompanyId], [r].[Date], [r].[IsDeleted], [r].[ReceiptNumber], [r].[ReceiptType], [r].[Status], [r].[TotalAmount], [a].[Id], [a].[Balance], [a].[Code], [a].[CompanyId], [a].[IsActive], [a].[IsDeleted], [a].[Name], [a].[TaxNumber], [a].[UserId], [t].[Id], [t].[LineTotal], [t].[Quantity], [t].[ReceiptId], [t].[StockId], [t].[UnitPrice], [t].[Id0], [t].[Balance], [t].[Code], [t].[CompanyId], [t].[IsActive], [t].[IsDeleted], [t].[Name], [t].[Unit], [t].[UnitPrice0]
+FROM [Receipts] AS [r]
+INNER JOIN [Accounts] AS [a] ON [r].[AccountId] = [a].[Id]
+LEFT JOIN (
+    SELECT [r0].[Id], [r0].[LineTotal], [r0].[Quantity], [r0].[ReceiptId], [r0].[StockId], [r0].[UnitPrice], [s].[Id] AS [Id0], [s].[Balance], [s].[Code], [s].[CompanyId], [s].[IsActive], [s].[IsDeleted], [s].[Name], [s].[Unit], [s].[UnitPrice] AS [UnitPrice0]
+    FROM [ReceiptDetails] AS [r0]
+    INNER JOIN [Stocks] AS [s] ON [r0].[StockId] = [s].[Id]
+) AS [t] ON [r].[Id] = [t].[ReceiptId]
+WHERE [r].[AccountId] = @__account_Id_0 AND [r].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [r].[Date] DESC, [r].[Id], [a].[Id], [t].[Id]
+2026-09-03 14:14:59.419 +03:00 [INF] Executed action method CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 197.9481ms.
+2026-09-03 14:14:59.423 +03:00 [INF] Executing OkObjectResult, writing value of type 'CariWebApi.Application.DTOs.MyAccountDto'.
+2026-09-03 14:14:59.456 +03:00 [INF] Executed action CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi) in 238.1317ms
+2026-09-03 14:14:59.460 +03:00 [INF] Executed endpoint 'CariWebApi.Controllers.AccountsController.GetMyAccount (StokCariFisWebApi)'
+2026-09-03 14:14:59.462 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7073/api/my-account - 200 null application/json; charset=utf-8 261.6266ms
+2026-09-03 14:27:40.305 +03:00 [INF] Application is shutting down...

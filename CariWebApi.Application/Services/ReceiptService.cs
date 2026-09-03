@@ -51,10 +51,7 @@ public class ReceiptService : IReceiptService
             throw new ValidationException(ErrorMessages.NoCompanySelected);
         }
 
-        if (!Enum.TryParse<ReceiptType>(dto.ReceiptType, true, out var receiptType))
-        {
-            throw new ValidationException(ErrorMessages.InvalidReceiptType);
-        }
+        var receiptType = ParseReceiptType(dto.ReceiptType);
 
         var count = await _repository.Query()
             .CountAsync(r => r.CompanyId == _currentUser.CompanyId && r.ReceiptType == receiptType);
@@ -80,7 +77,6 @@ public class ReceiptService : IReceiptService
         return _mapper.Map<ReceiptDto>(receipt);
     }
     
-    
     // fişe detay kesme
     public async Task<ReceiptDto?> AddDetailAsync(int receiptId, AddReceiptDetailDto dto)
     {
@@ -94,10 +90,7 @@ public class ReceiptService : IReceiptService
             return null;
         }
 
-        if (receipt.Status == ReceiptStatus.Approved)
-        {
-            throw new ValidationException(ErrorMessages.ReceiptAlreadyApproved);
-        }
+        EnsureNotApproved(receipt);
 
         var stock = await _stockRepository.Query()
             .FirstOrDefaultAsync(s => s.Id == dto.StockId && s.CompanyId == _currentUser.CompanyId);
@@ -175,15 +168,9 @@ public class ReceiptService : IReceiptService
             return null;
         }
 
-        if (receipt.Status == ReceiptStatus.Approved)
-        {
-            throw new ValidationException(ErrorMessages.ReceiptAlreadyApproved);
-        }
+        EnsureNotApproved(receipt);
 
-        if (!Enum.TryParse<ReceiptType>(dto.ReceiptType, true, out var receiptType))
-        {
-            throw new ValidationException(ErrorMessages.InvalidReceiptType);
-        }
+        var receiptType = ParseReceiptType(dto.ReceiptType);
 
         receipt.AccountId = dto.AccountId;
         receipt.ReceiptType = receiptType;
@@ -210,10 +197,7 @@ public class ReceiptService : IReceiptService
             return false;
         }
 
-        if (receipt.Status == ReceiptStatus.Approved)
-        {
-            throw new ValidationException(ErrorMessages.ReceiptAlreadyApproved);
-        }
+        EnsureNotApproved(receipt);
 
         foreach (var detail in receipt.Details)
         {
@@ -231,85 +215,101 @@ public class ReceiptService : IReceiptService
     // fiş onaylama
     public async Task<ReceiptDto?> ApproveAsync(int id)
     {
-    var receipt = await _repository.Query()
-        .Include(r => r.Details)
-        .FirstOrDefaultAsync(r => r.Id == id && r.CompanyId == _currentUser.CompanyId);
+        var receipt = await _repository.Query()
+            .Include(r => r.Details)
+            .FirstOrDefaultAsync(r => r.Id == id && r.CompanyId == _currentUser.CompanyId);
 
-    if (receipt == null)
-    {
-        return null;
-    }
+        if (receipt == null)
+        {
+            return null;
+        }
 
-    if (receipt.Status == ReceiptStatus.Approved)
-    {
-        throw new ValidationException(ErrorMessages.ReceiptAlreadyApproved);
-    }
+        EnsureNotApproved(receipt);
 
-    if (receipt.Details.Count == 0)
-    {
-        throw new ValidationException(ErrorMessages.EmptyReceipt);
-    }
+        if (receipt.Details.Count == 0)
+        {
+            throw new ValidationException(ErrorMessages.EmptyReceipt);
+        }
 
-    await CreateStockTransactionsAsync(receipt);
-    await CreateAccountTransactionAsync(receipt);
+        await CreateStockTransactionsAsync(receipt);
+        await CreateAccountTransactionAsync(receipt);
 
-    receipt.Status = ReceiptStatus.Approved;
-    _repository.Update(receipt);
-    await _repository.SaveChangesAsync();
+        receipt.Status = ReceiptStatus.Approved;
+        _repository.Update(receipt);
+        await _repository.SaveChangesAsync();
 
-    _logger.LogInformation("Fiş onaylandı: {ReceiptId}", id);
+        _logger.LogInformation("Fiş onaylandı: {ReceiptId}", id);
 
-    return _mapper.Map<ReceiptDto>(receipt);
+        return _mapper.Map<ReceiptDto>(receipt);
     }
     
     // stocktransaction oluşturma ve onaylanan fişten sonra stoğu güncelleme
-   private async Task CreateStockTransactionsAsync(Receipt receipt)
-{
-    foreach (var detail in receipt.Details)
+    private async Task CreateStockTransactionsAsync(Receipt receipt)
     {
-        var stock = await _stockRepository.GetByIdAsync(detail.StockId);
-
-        var quantity = receipt.ReceiptType == ReceiptType.Purchase
-            ? detail.Quantity
-            : -detail.Quantity;
-
-        if (receipt.ReceiptType == ReceiptType.Sales && stock!.Balance < detail.Quantity)
+        foreach (var detail in receipt.Details)
         {
-            throw new ValidationException($"{stock.Name} için yeterli stok yok.");
-        }
+            var stock = await _stockRepository.GetByIdAsync(detail.StockId);
 
-        var stockTrans = new StockTrans
+            var quantity = receipt.ReceiptType == ReceiptType.Purchase
+                ? detail.Quantity
+                : -detail.Quantity;
+
+            if (receipt.ReceiptType == ReceiptType.Sales && stock!.Balance < detail.Quantity)
+            {
+                throw new ValidationException($"{stock.Name} için yeterli stok yok.");
+            }
+
+            var stockTrans = new StockTrans
+            {
+                CompanyId = receipt.CompanyId,
+                StockId = detail.StockId,
+                ReceiptId = receipt.Id,
+                Quantity = quantity,
+                TransDate = DateTime.UtcNow
+            };
+            await _stockTransRepository.AddAsync(stockTrans);
+
+            stock!.Balance += quantity;
+            _stockRepository.Update(stock);
+        }
+    }
+
+    // AccountTransaction oluşturma ve onaylanan fişten sonra account'un balencını güncelleme
+    private async Task CreateAccountTransactionAsync(Receipt receipt)
+    {
+        var account = await _accountRepository.GetByIdAsync(receipt.AccountId);
+
+        var actTrans = new ActTrans
         {
             CompanyId = receipt.CompanyId,
-            StockId = detail.StockId,
+            AccountId = receipt.AccountId,
             ReceiptId = receipt.Id,
-            Quantity = quantity,
+            Debit = receipt.ReceiptType == ReceiptType.Sales ? receipt.TotalAmount : 0,
+            Credit = receipt.ReceiptType == ReceiptType.Purchase ? receipt.TotalAmount : 0,
             TransDate = DateTime.UtcNow
         };
-        await _stockTransRepository.AddAsync(stockTrans);
+        await _actTransRepository.AddAsync(actTrans);
 
-        stock!.Balance += quantity;
-        _stockRepository.Update(stock);
+        account!.Balance += actTrans.Debit - actTrans.Credit;
+        _accountRepository.Update(account);
     }
-}
 
-// AccountTransaction oluşturma ve onaylanan fişten sonra account'un balencını güncelleme
-   private async Task CreateAccountTransactionAsync(Receipt receipt)
-{
-    var account = await _accountRepository.GetByIdAsync(receipt.AccountId);
-
-    var actTrans = new ActTrans
+    // tekrar eden kontroller
+    private static void EnsureNotApproved(Receipt receipt)
     {
-        CompanyId = receipt.CompanyId,
-        AccountId = receipt.AccountId,
-        ReceiptId = receipt.Id,
-        Debit = receipt.ReceiptType == ReceiptType.Sales ? receipt.TotalAmount : 0,
-        Credit = receipt.ReceiptType == ReceiptType.Purchase ? receipt.TotalAmount : 0,
-        TransDate = DateTime.UtcNow
-    };
-    await _actTransRepository.AddAsync(actTrans);
+        if (receipt.Status == ReceiptStatus.Approved)
+        {
+            throw new ValidationException(ErrorMessages.ReceiptAlreadyApproved);
+        }
+    }
 
-    account!.Balance += actTrans.Debit - actTrans.Credit;
-    _accountRepository.Update(account);
-}
+    // Create/Update'de tekrar eden ReceiptType string->enum dönüşümü
+    private static ReceiptType ParseReceiptType(string value)
+    {
+        if (!Enum.TryParse<ReceiptType>(value, true, out var receiptType))
+        {
+            throw new ValidationException(ErrorMessages.InvalidReceiptType);
+        }
+        return receiptType;
+    }
 }

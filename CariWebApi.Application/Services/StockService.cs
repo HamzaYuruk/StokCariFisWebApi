@@ -64,34 +64,17 @@ public class StockService : IStockService
     // stok oluşturma
     public async Task<StockDto> CreateAsync(CreateStockDto dto)
     {
-        // gerekli if kontrolleri
         if (_currentUser.CompanyId == null)
         {
             throw new ValidationException(ErrorMessages.NoCompanySelected);
         }
-        
-        if (string.IsNullOrWhiteSpace(dto.Name))
-        {
-            throw new ValidationException(ErrorMessages.NameRequired);
-        }
 
-        if (string.IsNullOrWhiteSpace(dto.Code))
-        {
-            throw new ValidationException(ErrorMessages.CodeRequired);
-        }
+        ValidateStockFields(dto.Name, dto.Code, dto.UnitPrice);
 
-        if (dto.UnitPrice < 0)
-        {
-            throw new ValidationException(ErrorMessages.NegativePrice);
-        }
-        
-        
         var stock = _mapper.Map<Stock>(dto);
-        
         stock.CompanyId = _currentUser.CompanyId!.Value;
 
         await _repository.AddAsync(stock);
-
         await _repository.SaveChangesAsync();
 
         _logger.LogInformation("Yeni stok oluşturuldu: {StockId} - {StockName}", stock.Id, stock.Name);
@@ -102,21 +85,7 @@ public class StockService : IStockService
     // stok update
     public async Task<StockDto?> UpdateAsync(int id, UpdateStockDto dto)
     {
-        // gerekli if kontrolleri
-        if (string.IsNullOrWhiteSpace(dto.Name))
-        {
-            throw new ValidationException(ErrorMessages.NameRequired);
-        }
-
-        if (string.IsNullOrWhiteSpace(dto.Code))
-        {
-            throw new ValidationException(ErrorMessages.CodeRequired);
-        }
-
-        if (dto.UnitPrice < 0)
-        {
-            throw new ValidationException(ErrorMessages.NegativePrice);
-        }
+        ValidateStockFields(dto.Name, dto.Code, dto.UnitPrice);
 
         var stock = await _repository.Query()
             .FirstOrDefaultAsync(s => s.Id == id && s.CompanyId == _currentUser.CompanyId);
@@ -149,7 +118,6 @@ public class StockService : IStockService
             return false;
         }
         
-        // veriyi silmiyoruz IsDelected'i true yapıyoruz.
         stock.IsDeleted = true;
         _repository.Update(stock);
         await _repository.SaveChangesAsync();
@@ -157,5 +125,24 @@ public class StockService : IStockService
         _logger.LogInformation("Stok silindi: {StockId} - {StockName}", stock.Id, stock.Name);
         
         return true;
+    }
+
+    // tekrar eden kontroller
+    private static void ValidateStockFields(string name, string code, decimal unitPrice)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new ValidationException(ErrorMessages.NameRequired);
+        }
+
+        if (string.IsNullOrWhiteSpace(code))
+        {
+            throw new ValidationException(ErrorMessages.CodeRequired);
+        }
+
+        if (unitPrice < 0)
+        {
+            throw new ValidationException(ErrorMessages.NegativePrice);
+        }
     }
 }

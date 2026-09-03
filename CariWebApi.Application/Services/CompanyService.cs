@@ -9,10 +9,7 @@ using CariWebApi.Domain.Enums;
 using CariWebApi.Application.DTOs.Auth;
 
 namespace CariWebApi.Application.Services;
-// userrole ve role adlı iki tablo oluştur
-// hata mesajlarını ortak bir metoda topla
-// seed et kütüphane vs 
-// role enums kaldır
+
 public class CompanyService : ICompanyService
 {
     private readonly IRepository<Company> _repository;
@@ -31,7 +28,6 @@ public class CompanyService : ICompanyService
         IMapper mapper,
         ILogger<CompanyService> logger,
         JwtService jwtService)
-        
     {
         _repository = repository;
         _userCompanyRepository = userCompanyRepository;
@@ -56,7 +52,6 @@ public class CompanyService : ICompanyService
 
         return _mapper.Map<List<CompanyDto>>(companies);
     }
-    
     
     // id si verilen şirketi get 
     public async Task<CompanyDto?> GetByIdAsync(int id)
@@ -101,18 +96,14 @@ public class CompanyService : ICompanyService
     // şirket create
     public async Task<CreateCompanyResponseDto> CreateAsync(CreateCompanyDto dto, int userId)
     {
-        if (string.IsNullOrWhiteSpace(dto.Name))
-        {
-            throw new ValidationException(ErrorMessages.CompanyNameRequired);
-        }
+        ValidateCompanyName(dto.Name);
 
         var company = _mapper.Map<Company>(dto);
         await _repository.AddAsync(company);
         await _repository.SaveChangesAsync();
 
         var ownerRole = await _roleRepository.Query().FirstOrDefaultAsync(r => r.Name == "Owner");
-        
-     
+
         var userCompanyRole = new UserCompanyRole
         {
             UserId = userId,
@@ -138,18 +129,13 @@ public class CompanyService : ICompanyService
     // şirket update
     public async Task<CompanyDto?> UpdateAsync(int id, UpdateCompanyDto dto)
     {
-        
-        if (string.IsNullOrWhiteSpace(dto.Name))
-        {
-            throw new ValidationException(ErrorMessages.CompanyNameRequired);
-        }
+        ValidateCompanyName(dto.Name);
 
         var company = await _repository.GetByIdAsync(id);
         if (company == null)
         {
             _logger.LogWarning("Güncellenmek istenen şirket bulunamadı: {CompanyId}", id);
             return null;
-            
         }
 
         _mapper.Map(dto, company);
@@ -172,7 +158,6 @@ public class CompanyService : ICompanyService
             return false;
         }
 
-        // kaydı silmiyoruz IsDeleted true yapıyoruz
         company.IsDeleted = true;
         _repository.Update(company);
         await _repository.SaveChangesAsync();
@@ -180,5 +165,14 @@ public class CompanyService : ICompanyService
         _logger.LogInformation("Şirket silindi : {CompanyId} - {CompanyName}", company.Id, company.Name);
         
         return true;
+    }
+
+    // Tekrar eden kontroller
+    private static void ValidateCompanyName(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new ValidationException(ErrorMessages.CompanyNameRequired);
+        }
     }
 }

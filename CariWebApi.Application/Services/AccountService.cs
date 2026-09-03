@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CariWebApi.Application.Constants;
 using CariWebApi.Application.DTOs;
-using CariWebApi.Application.Constants;
 using CariWebApi.Application.Interfaces;
 using CariWebApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -75,21 +74,12 @@ public class AccountService : IAccountService
     // cari hesabı oluşturma
     public async Task<AccountDto> CreateAsync(CreateAccountDto dto)
     {
-        // gerekli if kontrolleri
         if (_currentUser.CompanyId == null)
         {
             throw new ValidationException(ErrorMessages.NoCompanySelected);
         }
 
-        if (string.IsNullOrWhiteSpace(dto.Name))
-        {
-            throw new ValidationException(ErrorMessages.NameRequired);
-        }
-
-        if (string.IsNullOrWhiteSpace(dto.Code))
-        {
-            throw new ValidationException(ErrorMessages.CodeRequired);
-        }
+        ValidateAccountFields(dto.Name, dto.Code);
 
         var account = _mapper.Map<Account>(dto);
         account.CompanyId = _currentUser.CompanyId!.Value;
@@ -105,16 +95,7 @@ public class AccountService : IAccountService
     // cari hesabını güncelleme
     public async Task<AccountDto?> UpdateAsync(int id, UpdateAccountDto dto)
     {
-        // gerekli if kontrolleri
-        if (string.IsNullOrWhiteSpace(dto.Name))
-        {
-            throw new ValidationException(ErrorMessages.NameRequired);
-        }
-
-        if (string.IsNullOrWhiteSpace(dto.Code))
-        {
-            throw new ValidationException(ErrorMessages.CodeRequired);
-        }
+        ValidateAccountFields(dto.Name, dto.Code);
 
         var account = await _repository.Query()
             .FirstOrDefaultAsync(a => a.Id == id && a.CompanyId == _currentUser.CompanyId);
@@ -155,7 +136,6 @@ public class AccountService : IAccountService
 
         return true;
     }
-    
     
     // cari hesabı kullanıcıya bağlama
     public async Task<bool> LinkUserAsync(int accountId, LinkAccountUserDto dto)
@@ -218,14 +198,28 @@ public class AccountService : IAccountService
         var receipts = await _receiptRepository.Query()
             .Include(r => r.Account)
             .Include(r => r.Details)
+            .ThenInclude(d => d.Stock)
             .Where(r => r.AccountId == account.Id && !r.IsDeleted)
             .OrderByDescending(r => r.Date)
             .ToListAsync();
-
+        
         var dto = _mapper.Map<MyAccountDto>(account);
         dto.Receipts = _mapper.Map<List<ReceiptDto>>(receipts);
 
         return dto;
     }
-    
+
+    // tekrar eden kontroller
+    private static void ValidateAccountFields(string name, string code)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new ValidationException(ErrorMessages.NameRequired);
+        }
+
+        if (string.IsNullOrWhiteSpace(code))
+        {
+            throw new ValidationException(ErrorMessages.CodeRequired);
+        }
+    }
 }
